@@ -41,7 +41,7 @@ const LoginReg = () => {
 
       <Grid item lg={5} sm={7} xs={12}>
       <Card sx={{width:'100%', height:'100%'}}>
-      <Box>
+      <Box  >
         <Box sx={{borderBottom: 1, borderColor:'divider'}}>
           <Tabs value={value} onChange={handleChange} textColor='secondary' indicatorColor='secondary'>
             <Tab label='Login' sx={{textTransform:'none', fontWeight:'bold'}}></Tab>
@@ -51,7 +51,7 @@ const LoginReg = () => {
         <TabPanel value={value} index={0}> <Login/></TabPanel>
         <TabPanel value={value} index={1}><Registration/></TabPanel>
       </Box>
-
+     
       </Card>
 
       </Grid>

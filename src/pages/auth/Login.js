@@ -37,7 +37,7 @@ const Login = () => {
           <Button type="submit"  variant="contained" sx={{mt:3, mb:2, px:5}}>LogIn</Button>
           
         </Box>
-        <NavLink to='/' >Forgot Password?</NavLink>
+        <NavLink to='/send-email' >Forgot Password?</NavLink>
         {error.status ? <Alert severity={error.type}>{error.msg}</Alert>: ''}
    </Box>
     </>
