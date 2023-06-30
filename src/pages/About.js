@@ -7,7 +7,7 @@ const About = () => {
     <div className='about'>
       <div className='aboutTop' style={{ backgroundImage: `url(${ImageTop})` }}></div>
       <div className='aboutBottom'>
-        <h1>About Us</h1>
+        <h1>PEDRRO-S-PIZZERIA</h1>
         <p>pizza, dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese, and many other ingredients, baked quickly—usually, in a commercial setting, using a wood-fired oven heated to a very high temperature—and served hot
           Uncover the chemistry behind the delicious taste of pizza
           Uncover the chemistry behind the delicious taste of pizzaSee all videos for this article
