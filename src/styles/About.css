@@ -27,6 +27,7 @@
 }
 
 .about .aboutBottom h1 {
+  
   font-weight: 400;
   font-size: 70px;
   color: black;
@@ -34,4 +35,7 @@
   display: flex;
   justify-content: center;
   transform: translateY(-40px);
+}
+.title{
+  font-family: 'Bangers', cursive;
 }

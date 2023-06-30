@@ -11,11 +11,14 @@ import LoginReg from './pages/auth/LoginReg';
 import ResetPassword from './pages/auth/PasswordReset';
 import SendPasswordResetEmail from './pages/auth/SendPasswordEmail';
 import Dashboard from './pages/Dashboard';
+import { AuthProvider } from './context/AuthContext';
+
 
 function App() {
   return (
     <div className="App">
     <Router>
+    <AuthProvider>
     <Navbar/>
     <Routes>
       <Route path='/' element={<Home/>}/>
@@ -28,6 +31,7 @@ function App() {
       <Route path='*' element={<Dashboard/>}/>
     </Routes>
     <Footer/>
+    </AuthProvider>
     </Router>
     
     </div>

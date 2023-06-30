@@ -44,8 +44,8 @@ const LoginReg = () => {
       <Box  >
         <Box sx={{borderBottom: 1, borderColor:'divider'}}>
           <Tabs value={value} onChange={handleChange} textColor='secondary' indicatorColor='secondary'>
-            <Tab label='Login' sx={{textTransform:'none', fontWeight:'bold'}}></Tab>
-            <Tab label='Registration' sx={{textTransform:'none', fontWeight:'bold'}}></Tab>
+            <Tab label='Login' sx={{textTransform:'none', fontWeight:'bold'}} style={{color:'#A84448'}}></Tab>
+            <Tab label='Registration' sx={{textTransform:'none', fontWeight:'bold'}} style={{color:'#A84448'}}></Tab>
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}> <Login/></TabPanel>
