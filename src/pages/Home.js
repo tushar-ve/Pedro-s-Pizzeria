@@ -7,6 +7,7 @@ import AuthContext from '../context/AuthContext'
 
 const Home = () => {
   let {user} = useContext(AuthContext)
+
   return (
     <div className='home'style={{backgroundImage: `url(${BannerImage})`}}>
     <div className='headerContainer' >

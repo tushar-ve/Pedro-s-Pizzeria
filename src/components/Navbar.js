@@ -11,7 +11,7 @@ import AuthContext from '../context/AuthContext';
 
 const Navbar = () => {
   
- let {user} = useContext(AuthContext)
+ let {user,  logoutUser} = useContext(AuthContext)
 
   const[openLinks, setOpenLinks]= useState(false)
   const toogleNavbar = ()=>{
@@ -35,9 +35,19 @@ const Navbar = () => {
       <Link to='/menu'>Menu</Link>
       <Link to='/about'>About</Link>
       <Link to='/contact'>Contact</Link>
-      <Button  href='/login' style={{backgroundColor: '#352121'}} variant="outlined" color="error">
+      {user ? (
+
+        <Button  href='/login' style={{backgroundColor: '#352121'}} variant="outlined" color="error">
+  Logout
+</Button>
+
+) : (
+
+  <Button  href='/login' style={{backgroundColor: '#352121'}} variant="outlined" color="error">
   Login
 </Button>
+
+)}
       <button onClick={toogleNavbar}>
         <ReorderIcon />
       </button>

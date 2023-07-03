@@ -35,7 +35,7 @@ const OTP = () => {
           setEmail("")
           setOtp("")
           setError({ status: true, msg: "Registration Successful", type: 'success' });
-          navigate('/login', 3000);
+          // navigate('/login', 3000);
         })
       })
     }
