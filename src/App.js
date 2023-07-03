@@ -10,7 +10,7 @@ import Contact from './pages/Contact';
 import LoginReg from './pages/auth/LoginReg';
 import ResetPassword from './pages/auth/PasswordReset';
 import SendPasswordResetEmail from './pages/auth/SendPasswordEmail';
-import Dashboard from './pages/Dashboard';
+import OTP from './pages/OTP';
 import { AuthProvider } from './context/AuthContext';
 
 
@@ -28,7 +28,7 @@ function App() {
       <Route path="/login" element={<LoginReg/>}/>
       <Route path='/send-email' element={<SendPasswordResetEmail/>}/>
       <Route path='/reset-password' element={<ResetPassword/>}/>
-      <Route path='*' element={<Dashboard/>}/>
+      <Route path='/verify' element={<OTP/>}/>
     </Routes>
     <Footer/>
     </AuthProvider>

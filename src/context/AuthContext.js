@@ -8,8 +8,8 @@ export default AuthContext;
 
 export const AuthProvider = ({children}) => {
     localStorage.getItem('authTokens')
-    const [authTokens, setAuthTokens] = useState(null)
-    let [user, setUser] = useState(null) 
+    const [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
+    let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null) 
     let [error, setError] = useState("")   
     const Navigate = useNavigate();
     const loginUser= async(e)=>{
@@ -29,11 +29,18 @@ export const AuthProvider = ({children}) => {
             const decodedToken = jwt_decode(data.token.access);
             setUser(decodedToken)
             localStorage.setItem('authTokens', JSON.stringify(data))
-            Navigate('/',9000)
+            Navigate('/')
         }else{
             setError({status: true, msg:"Check you password or email", type:'error'})
         }
       
+    }
+
+    let logoutUser= () =>{
+        setAuthTokens(null)
+        setUser(null)
+        localStorage.removeItem('authTokens')
+        Navigate('/login')
     }
 
     let contextData ={
