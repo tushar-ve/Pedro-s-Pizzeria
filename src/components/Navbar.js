@@ -37,7 +37,7 @@ const Navbar = () => {
       <Link to='/contact'>Contact</Link>
       {user ? (
 
-        <Button  href='/login' style={{backgroundColor: '#352121'}} variant="outlined" color="error">
+        <Button onClick={logoutUser} href='/login' style={{backgroundColor: '#352121'}} variant="outlined" color="error">
   Logout
 </Button>
 

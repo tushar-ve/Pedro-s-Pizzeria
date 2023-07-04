@@ -29,7 +29,7 @@ export const AuthProvider = ({children}) => {
             const decodedToken = jwt_decode(data.token.access);
             setUser(decodedToken)
             localStorage.setItem('authTokens', JSON.stringify(data))
-            Navigate('/')
+            Navigate('/',3000)
         }else{
             setError({status: true, msg:"Check you password or email", type:'error'})
         }
