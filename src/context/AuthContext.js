@@ -14,7 +14,7 @@ export const AuthProvider = ({children}) => {
     const Navigate = useNavigate();
     const loginUser= async(e)=>{
         e.preventDefault()
-        console.log('form works')
+        // console.log('form works')
         const response = await fetch('http://localhost:8000/account/login/', {
             method:'POST',
             headers:{
@@ -29,7 +29,7 @@ export const AuthProvider = ({children}) => {
             const decodedToken = jwt_decode(data.token.access);
             setUser(decodedToken)
             localStorage.setItem('authTokens', JSON.stringify(data))
-            Navigate('/',3000)
+            Navigate('/cart',3000)
         }else{
             setError({status: true, msg:"Check you password or email", type:'error'})
         }

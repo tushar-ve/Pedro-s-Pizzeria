@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import '../styles/Navbar.css';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import AuthContext from '../context/AuthContext';
-
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 
 const Navbar = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
 ) : (
 
   <Button  href='/login' style={{backgroundColor: '#352121'}} variant="outlined" color="error">
-  Login
+  Add<AddShoppingCartIcon/>
 </Button>
 
 )}

@@ -12,6 +12,8 @@ import ResetPassword from './pages/auth/PasswordReset';
 import SendPasswordResetEmail from './pages/auth/SendPasswordEmail';
 import OTP from './pages/OTP';
 import { AuthProvider } from './context/AuthContext';
+import DescriptionItem from './pages/DescriptionItem';
+import Cart from './components/Cart/Cart';
 
 
 function App() {
@@ -23,12 +25,16 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/menu' element={<Menu/>}/>
+      <Route path='/items/:item_id' element={<DescriptionItem/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path="/login" element={<LoginReg/>}/>
       <Route path='/send-email' element={<SendPasswordResetEmail/>}/>
       <Route path='/reset-password' element={<ResetPassword/>}/>
       <Route path='/verify' element={<OTP/>}/>
+      <Route path='/cart' element={<Cart/>}/>
+
+      
     </Routes>
     <Footer/>
     </AuthProvider>
