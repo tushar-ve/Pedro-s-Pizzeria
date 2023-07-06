@@ -10,9 +10,15 @@ export const AuthProvider = ({children}) => {
     localStorage.getItem('authTokens')
     const [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
     let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null) 
-    let [error, setError] = useState("")   
+    let [is_verified, setIs_Verified] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : { is_verified: false }) 
+    const [error, setError] = useState({
+          status:false,
+          msg:"",
+          type: "",
+        }) 
     const Navigate = useNavigate();
     const loginUser= async(e)=>{
+   
         e.preventDefault()
         // console.log('form works')
         const response = await fetch('http://localhost:8000/account/login/', {
@@ -24,7 +30,7 @@ export const AuthProvider = ({children}) => {
         })
         let data = await response.json()
         console.log('data:', data)
-        if (response.status === 200){
+        if (response.status === 200 && user.exists() && is_verified===true){
             setAuthTokens(data)
             const decodedToken = jwt_decode(data.token.access);
             setUser(decodedToken)
@@ -32,6 +38,7 @@ export const AuthProvider = ({children}) => {
             Navigate('/cart',3000)
         }else{
             setError({status: true, msg:"Check you password or email", type:'error'})
+            // alert("usernot exists")
         }
       
     }
@@ -46,7 +53,8 @@ export const AuthProvider = ({children}) => {
     let contextData ={
         user:user,
         loginUser:loginUser,
-        logoutUser:logoutUser
+        logoutUser:logoutUser,
+        setError:setError
     }
 
     return(

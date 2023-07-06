@@ -14,7 +14,7 @@ import OTP from './pages/OTP';
 import { AuthProvider } from './context/AuthContext';
 import DescriptionItem from './pages/DescriptionItem';
 import Cart from './components/Cart/Cart';
-
+import PrivateRoute from './components/PrivateRoutes/PrivateRoute';
 
 function App() {
   return (
@@ -23,6 +23,13 @@ function App() {
     <AuthProvider>
     <Navbar/>
     <Routes>
+
+ <Route element={<PrivateRoute />}>
+
+ <Route path='/cart' element={<Cart/>}/>
+
+
+                        </Route>
       <Route path='/' element={<Home/>} />
       <Route path='/menu' element={<Menu/>}/>
       <Route path='/items/:item_id' element={<DescriptionItem/>}/>

@@ -19,15 +19,15 @@ const MenuItem = ({image, name, price}) => {
    
       {data.map((item,i)=>{
         return(
-          <div className='menuItem' key={i} onClick={() => navigate(`/items/${item.id}`)}>
-          <div style={{backgroundImage: `url(http://127.0.0.1:8000${item.image})`}}></div>
+          <div className='menuItem' key={i}>
+          <div style={{backgroundImage: `url(http://127.0.0.1:8000${item.image})`}}  onClick={() => navigate(`/items/${item.id}`)}></div>
       <h2>
        {item.name}
       </h2>
       <p className='amount'>₹:<span>{item.amount}</span> </p>
      
       <div className='cart1'>
-      <AddShoppingCartIcon/>
+      <AddShoppingCartIcon onClick={()=>{navigate('/cart')}}/>
       </div>
     </div>
         )

@@ -6,12 +6,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 
 const Login = () => {
-  const {loginUser} = useContext(AuthContext)
-  const [error, setError] = useState({
-    status:false,
-    msg:"",
-    type: "",
-  })
+  const {loginUser, user, setError} = useContext(AuthContext)
+  // const [error, setError] = useState({
+  //   status:false,
+  //   msg:"",
+  //   type: "",
+  // })
   // const navigate = useNavigate();
   // const handleSubmit =(e)=>{
  
@@ -36,6 +36,7 @@ const Login = () => {
 
   return (
     <>
+     
       <Box onSubmit={loginUser} component='form' noValidate sx={{mt:2}}  id='login-form'>
         <TextField margin="normal" required fullWidth id='email' name="email" label='Email Address'/>
         <TextField  margin="normal" required fullWidth id='password' name="password" label='Password' type="password"/>
@@ -44,8 +45,11 @@ const Login = () => {
           
         </Box>
         <NavLink to='/send-email' style={{color:"B04759 "}}  >Forgot Password?</NavLink>
-        {error.status ? <Alert severity={error.type}>{error.msg}</Alert>: ''}
+        {
+          setError
+        }
    </Box>
+     
     </>
   )
 }

@@ -70,8 +70,9 @@ const Registration = () => {
     console.log(name, password, email)
     const validRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     let data = { email: email, name: name, password: password, tc: tc, password2: password2 }
-    if (data.name && data.email && data.password && data.password2 && data.tc !== null) {
-      if (data.password === data.password2) {
+    if (data.name && data.email && data.password && data.password2 !== null && data.tc!==false) {
+      if (data.password === data.password2 ) {
+        if(password.length>6){
         if (data.email.match(validRegex) && isNaN(data.email[0])) {
           fetch("http://localhost:8000/account/register/", {
             method: "POST",
@@ -97,7 +98,10 @@ const Registration = () => {
         }
         else {
           setError({ status: true, msg: "Invalid email ", type: 'error' });
-        }
+        }}
+       else{
+        setError({ status: true, msg: "Password length should greater than 6", type: 'error' });
+       }
       }
       else {
         setError({ status: true, msg: "Password doesn't match", type: 'error' });

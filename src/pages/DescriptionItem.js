@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
@@ -10,8 +10,11 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import '../styles/Description.css'
+import {FaCartPlus} from "react-icons/fa";
+
 
 const DescriptionItem = (props) => {
+   const navigate = useNavigate();
   const [foodItem, setFoodItem] = useState([]);
   const [loading, setLoading] = useState(true);
   const { item_id } = useParams();
@@ -58,7 +61,16 @@ const DescriptionItem = (props) => {
                <p className="card__content"> Carbs: <span className='inner__clr'>{foodItem.carbs}%</span></p>
                <p className="card__content"> Energy: <span className='inner__clr'>{foodItem.energy}%</span></p>
                </div>
-               <button>Add Cart</button>
+               <div className="cart-buttons">
+                                        <button className="add-to-cart-button" onClick={()=> navigate('/cart')}>
+
+                                            <FaCartPlus size={20} /><span style={{marginLeft:9}}> ADD TO CART</span>
+
+                                           
+
+                                        </button>
+
+                                    </div>
                
             </div>
          </div>
