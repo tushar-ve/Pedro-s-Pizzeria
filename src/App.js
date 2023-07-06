@@ -15,6 +15,7 @@ import { AuthProvider } from './context/AuthContext';
 import DescriptionItem from './pages/DescriptionItem';
 import Cart from './components/Cart/Cart';
 import PrivateRoute from './components/PrivateRoutes/PrivateRoute';
+import SearchComponent from './components/Searching/Search';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
       <Route path='/reset-password' element={<ResetPassword/>}/>
       <Route path='/verify' element={<OTP/>}/>
       <Route path='/cart' element={<Cart/>}/>
+      <Route path='/search/:name' element={<SearchComponent/>}/>
 
       
     </Routes>

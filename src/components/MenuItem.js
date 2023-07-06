@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate} from 'react-router-dom'
+
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const MenuItem = ({image, name, price}) => {
   const [data, setData] = useState([])
@@ -28,6 +29,7 @@ const MenuItem = ({image, name, price}) => {
      
       <div className='cart1'>
       <AddShoppingCartIcon onClick={()=>{navigate('/cart')}}/>
+      
       </div>
     </div>
         )
