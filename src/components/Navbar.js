@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Logo from '../assets/pizzaLogo.png'
 import { useState } from 'react';
 import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Navbar.css';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import AuthContext from '../context/AuthContext';
@@ -12,8 +12,9 @@ import { FaSearch } from "react-icons/fa";
 const Navbar = () => {
 
   let { user, logoutUser } = useContext(AuthContext)
-
+ const navigate= useNavigate();
   const [openLinks, setOpenLinks] = useState(false)
+  const [showCart, setShowCart] =  useState(false)
   const toogleNavbar = () => {
     setOpenLinks(!openLinks)
   }
@@ -37,16 +38,19 @@ const Navbar = () => {
         <Link to='/contact'>Contact</Link>
         <input type='text' placeholder='search' name='name' /><span style={{ color: 'whitesmoke', marginLeft: 4, borderBlockColor: 'navajowhite' }}> <FaSearch /></span>
         {user ? (
-
+          <>
           <Button onClick={logoutUser} href='/login' style={{ backgroundColor: '#352121' }} variant="outlined" color="error">
             Logout
           </Button>
-
+          <Button href='/cart' style={{ backgroundColor: '#352121' }} variant="outlined" color="error">
+            Add<AddShoppingCartIcon />
+          </Button>
+</>
 
 
         ) : (
 
-          <Button href='/login' style={{ backgroundColor: '#352121' }} variant="outlined" color="error">
+          <Button onClick={()=>{navigate('/cart')}} style={{ backgroundColor: '#352121' }} variant="outlined" color="error">
             Add<AddShoppingCartIcon />
           </Button>
 
