@@ -25,20 +25,22 @@ function App() {
     <Navbar/>
     <Routes>
 
- <Route element={<PrivateRoute />}> </Route>
+ <Route element={<PrivateRoute />}> <Route path='/cart' element={<Cart/>}/>
+ <Route path='/contact' element={<Contact/>}/> 
+ <Route path='/send-email' element={<SendPasswordResetEmail/>}/></Route>
 
 
       <Route path='/' element={<Home/>} />
       <Route path='/menu' element={<Menu/>}/>
       <Route path='/items/:item_id' element={<DescriptionItem/>}/>
       <Route path='/about' element={<About/>}/>
-      <Route path='/cart' element={<Cart/>}/>
-      <Route path='/contact' element={<Contact/>}/>
+     
+      
       <Route path="/login" element={<LoginReg/>}/>
-      <Route path='/send-email' element={<SendPasswordResetEmail/>}/>
+      
       <Route path='/reset-password' element={<ResetPassword/>}/>
       <Route path='/verify' element={<OTP/>}/>
-      <Route path='/cart' element={<Cart/>}/>
+     
       <Route path='/search/:name' element={<SearchComponent/>}/>
 
       

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Muli&display=swap");
+
 :root {
    --ff-head: "Merriweather", serif;
    --ff-body: "Muli", sans-serif;
@@ -16,13 +17,15 @@
 
 
 img {
-  max-width: 50%;
+   max-width: 50%;
    height: auto;
    float: left;
 }
+
 .main {
    padding: 1em 0;
 }
+
 .container {
    max-width: 1200px;
    width: 90%;
@@ -116,17 +119,17 @@ img {
 }
 
 .card__head {
-  --fs-h4: 1rem;
-  font-size: var(--fs-h4);
-  margin-bottom: 0em;
-  color: var(--clr-head);
-  font-family: 'Merriweather';
+   --fs-h4: 1rem;
+   font-size: var(--fs-h4);
+   margin-bottom: 0em;
+   color: var(--clr-head);
+   font-family: 'Merriweather';
 }
 
 .card__content {
-  --fs-body: -3.4rem;
+   --fs-body: -3.4rem;
    font-size: var(--fs-body);
- 
+
 }
 
 @media (min-width: 750px) {
@@ -142,17 +145,21 @@ img {
       --fs-h5: 1.8rem;
       font-size: var(--fs-h5);
    }
+
    .inner__headings {
       flex: 1 0 30%;
    }
+
    .inner__content {
       flex: 1 0 50%;
       align-self: center;
       margin-left: 2rem;
    }
+
    .inner__sub {
       margin-bottom: 0;
    }
+
    .inner__head {
       --fs-h2: 4rem;
    }
@@ -161,13 +168,14 @@ img {
 .cart-buttons {
 
    display: flex;
-    float: right;
+   float: right;
 
    @include md {
 
-     margin-top: 30px;
+      margin-top: 30px;
 
    }
+
    .quantity-buttons {
       width: -moz-fit-content;
       width: fit-content;
@@ -175,74 +183,78 @@ img {
       border: 1px solid rgba(0, 0, 0, 0.2);
       margin-right: 10px;
       margin-top: 52px;
-      height: 28px;
-      width: 76px;
+      height: 29px;
+      width: 104px;
       background: #eda673;
       border-bottom: 3px solid #d32f2f5e;
       flex-grow: 1;
       border-radius: 29px;
-  
+
       justify-content: space-evenly;
       font-size: 20px;
+
       span {
-          font-size: 30px;
-          width: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          color: #6b6b6b;
-          &:nth-child(1) {
-              border-right: 2px solid rgba(0, 0, 0, 0.2);
-          }
-          &:nth-child(2) {
-              width: 60px;
-          }
-          &:nth-child(3) {
-              border-left: 2px solid rgba(0, 0, 0, 0.2);
-          }
+         font-size: 30px;
+         width: 40px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         color: #6b6b6b;
+
+         &:nth-child(1) {
+            border-right: 2px solid rgba(0, 0, 0, 0.2);
+         }
+
+         &:nth-child(2) {
+            width: 60px;
+         }
+
+         &:nth-child(3) {
+            border-left: 2px solid rgba(0, 0, 0, 0.2);
+         }
       }
    }
 }
 
-   
-   .add-to-cart-button {
 
-     outline: 0;
+.add-to-cart-button {
 
-     border: 0;
+   outline: 0;
 
-     height: 50px;
+   border: 0;
 
-     width: 180px;
+   height: 50px;
 
-     display: flex;
+   width: 180px;
 
-     align-items: center;
+   display: flex;
 
-     justify-content: center;
+   align-items: center;
 
-     cursor: pointer;
+   justify-content: center;
 
-     font-size: 16px;
+   cursor: pointer;
 
-     color: white;
+   font-size: 16px;
 
-     background:#eda673;
+   color: white;
 
-     border-bottom: 3px solid #d32f2f5e;
+   background: #eda673;
 
-     flex-grow: 1;
-     border-radius: 29px;
-     margin-top: 43px;
-   
+   border-bottom: 3px solid #d32f2f5e;
 
-   }
+   flex-grow: 1;
+   border-radius: 29px;
+   margin-top: 43px;
 
- 
 
- .add-to-cart-button:hover{
+}
+
+
+
+.add-to-cart-button:hover {
    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
    transition: 0.3s ease-in;
    cursor: pointer;
- }
+}

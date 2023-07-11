@@ -1,46 +1,60 @@
 import React, { useContext } from 'react'
-import '../Cart.css'
+
+import './cartitem.css'
+
+import { MdClose } from "react-icons/md";
+
 
 import AuthContext from '../../../context/AuthContext'
 const CartItems = () => {
-  const {cartItems, handleAddToCart, handleRemoveFromCart} = useContext(AuthContext)
+  const { cartItems, handleRemoveFromCart, handleCartProductQuantity } = useContext(AuthContext)
   console.log(cartItems)
   return (
-    <div>
-     {
-      
-      cartItems.map((items)=>{
-        return(
-          <div key={items.id} className="item">
-        <div className="buttons">
-          <span className="delete-btn"></span>
-          <span className="like-btn"></span>
+    <div className="cart-products">
+    {cartItems?.map((item) => (
+        <div
+            className="search-result-item"
+            key={item.id}
+            onClick={() => {}}
+        >
+            <div className="image-container">
+               
+            </div>
+            <div className="prod-details">
+                <span className="name">{item.name}</span>
+                <MdClose
+                    className="close-btn"
+                    onClick={() => handleRemoveFromCart(item)}
+                />
+                <div className="quantity-buttons">
+                    <span
+                        onClick={() =>
+                            handleCartProductQuantity("dec", item)
+                        }
+                    >
+                        -
+                    </span>
+                    <span>{item.quantity}</span>
+                    <span
+                        onClick={() =>
+                            handleCartProductQuantity("inc", item)
+                        }
+                    >
+                        +
+                    </span>
+                </div>
+                <div className="text">
+                    <span>{item.quantity}</span>
+                    <span>x</span>
+                    <span className="highlight">
+                        <span>&#8377;</span>
+                        {item.amount }
+                    </span>
+                </div>
+            </div>
         </div>
-
-        <div className="image">
-          <img src="https://designmodo.com/demo/shopping-cart/item-1.png" alt="" />
-        </div>
-
-        <div className="description">
-          <p>{items.id}</p>
-        </div>
-
-        <div className="quantity">
-          <button className="plus-btn" type="button" name="button">
-            <img src="https://designmodo.com/demo/shopping-cart/plus.svg" alt="" />
-          </button>
-          <input type="text" name="name" value="1"/>
-          <button className="minus-btn" type="button" name="button">
-            <img src="https://designmodo.com/demo/shopping-cart/minus.svg" alt="" />
-          </button>
-        </div>
-
-        <div className="total-price">$549</div>
-      </div>
-        )
-      })
-     }
-    </div>
+    ))}
+</div>
   )
 }
 

@@ -73,6 +73,14 @@ const DescriptionItem = (props) => {
                         <p className="card__content"> Energy: <span className='inner__clr'>{foodItem.energy}%</span></p>
                      </div>
                      <div className="cart-buttons">
+                     
+                        <select placeholder='Size' className="quantity-buttons" style={{textAlign:'center'}}>
+                           <option>Medium</option>
+                           <option>Small</option>
+                           <option>Large</option>
+                        </select>
+               
+
                         <div className="quantity-buttons">
                            <span onClick={decrement}>-</span>
                            <span>{quantity}</span>

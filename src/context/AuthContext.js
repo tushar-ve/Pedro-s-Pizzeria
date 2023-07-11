@@ -41,7 +41,7 @@ export const AuthProvider = ({children}) => {
 
             (item) =>
 
-                (subTotal += item.price * item.quantity)
+                (subTotal += item.amount * item.quantity)
 
         );
 
@@ -136,7 +136,7 @@ export const AuthProvider = ({children}) => {
             const decodedToken = jwt_decode(data.token.access);
             setUser(decodedToken)
             localStorage.setItem('authTokens', JSON.stringify(data))
-            Navigate('/cart',3000)
+            Navigate('/',3000)
         }else{
             setError({status: true, msg:"Check you password or email", type:'error'})
             alert("usernot exists")
@@ -156,12 +156,12 @@ export const AuthProvider = ({children}) => {
         loginUser:loginUser,
         logoutUser:logoutUser,
         setError:setError,
-        setCartSubTotal,
-        cartSubTotal,
-        setCartCount,
-        cartCount,
+        setCartSubTotal:setCartSubTotal,
+        cartSubTotal:cartSubTotal,
+        setCartCount:setCartCount,
+        cartCount:cartCount,
         cartItems:cartItems,
-        setCartItems,
+        setCartItems:setCartItems,
         handleAddToCart:handleAddToCart,
         handleCartItemQuantity:handleCartItemQuantity,
         handleRemoveFromCart:handleRemoveFromCart,

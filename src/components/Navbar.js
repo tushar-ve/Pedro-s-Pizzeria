@@ -8,6 +8,7 @@ import ReorderIcon from '@mui/icons-material/Reorder';
 import AuthContext from '../context/AuthContext';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { FaSearch } from "react-icons/fa";
+import Cart from '.././components/Cart/Cart'
 
 const Navbar = () => {
 
@@ -42,12 +43,11 @@ const Navbar = () => {
           <Button onClick={logoutUser} href='/login' style={{ backgroundColor: '#352121' }} variant="outlined" color="error">
             Logout
           </Button>
-          <Button href='/cart' style={{ backgroundColor: '#352121' }} variant="outlined" color="error">
+          <Button onClick={()=>setShowCart(true)} style={{ backgroundColor: '#352121', display: 'flex',flexWrap:'nowrap'}} variant="outlined" color="error">
             Add<AddShoppingCartIcon />
           </Button>
+          {showCart && <Cart setShowCart={setShowCart}/>}
 </>
-
-
         ) : (
 
           <Button onClick={()=>{navigate('/cart')}} style={{ backgroundColor: '#352121' }} variant="outlined" color="error">
@@ -59,7 +59,7 @@ const Navbar = () => {
           <ReorderIcon />
         </button>
       </div>
-
+          {showCart && <Cart setShowCart={setShowCart}/>}
     </div>
   )
 }
