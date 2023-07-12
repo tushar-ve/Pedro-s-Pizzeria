@@ -87,7 +87,7 @@ const DescriptionItem = (props) => {
                            <span onClick={increment}>+</span>
                         </div>
                             <button className="add-to-cart-button" onClick={() => handleAddToCart(foodItem, quantity)}>
-                              <FaCartPlus size={20} /><span style={{ marginLeft: 9 }}> ADD TO CART</span>
+                              <FaCartPlus size={20} /><span style={{ marginLeft: 9 }} onClick={()=>{navigate('/cart')}}> ADD TO CART</span>
                            </button>
                      
                      </div>

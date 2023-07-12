@@ -4,8 +4,10 @@ import { BsCartX } from "react-icons/bs";
 import './Cart.css'
 import CartItems from './CartItems/CartItems';
 import AuthContext from '../../context/AuthContext';
-const Cart = () => {
-  const { cartCount, showCart, setShowCart, cartItems, cartSubTotal } = useContext(AuthContext);
+import { useNavigate } from 'react-router-dom';
+const Cart = ({setShowCart}) => {
+  const { cartCount, showCart, cartItems, cartSubTotal } = useContext(AuthContext);
+  const navigate = useNavigate();
   return (
     <div className="cart-panel">
     <div
@@ -28,7 +30,7 @@ const Cart = () => {
             <div className="empty-cart">
                 <BsCartX />
                 <span>No products in the cart.</span>
-                <button className="return-cta" onClick={() => {}}>
+                <button className="return-cta" onClick={() => {navigate('/menu') }}>
                     RETURN TO SHOP
                 </button>
             </div>

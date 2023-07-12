@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 
 const Login = () => {
-  const {loginUser, user, setError} = useContext(AuthContext)
+  const {loginUser, user,error} = useContext(AuthContext)
   // const [error, setError] = useState({
   //   status:false,
   //   msg:"",
@@ -44,10 +44,12 @@ const Login = () => {
           <Button type="submit"  variant="contained" style={{backgroundColor:"#B04759"}}  sx={{mt:3, mb:2, px:5}}>LogIn</Button>
           
         </Box>
-        <NavLink to='/send-email' style={{color:"B04759 "}}  >Forgot Password?</NavLink>
-        {
-          setError
-        }
+        <NavLink to='/send-email' style={{color:"rgb(176, 71, 89)", fontStyle:'normal'}}  >Forgot Password?</NavLink>
+        <div style={{color:'#d32f2f5e',fontSize: '15px',margin: '30px'}}>
+
+         {error.status?<alert >{error.msg}</alert>:'' }
+
+</div> 
    </Box>
      
     </>

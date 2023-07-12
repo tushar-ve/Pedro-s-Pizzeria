@@ -27,10 +27,10 @@ const MenuItem = ({image, name, price}) => {
       </h2>
       <p className='amount'>₹:<span>{item.amount}</span> </p>
      
-      <div className='cart1'>
+      {/* <div className='cart1'>
       <AddShoppingCartIcon onClick={()=>{navigate('/cart')}}/>
       
-      </div>
+      </div> */}
     </div>
         )
       })}

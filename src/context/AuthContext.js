@@ -11,6 +11,7 @@ export const AuthProvider = ({children}) => {
     const [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
     let [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null) 
     let [is_verified, setIs_Verified] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : { is_verified: false }) 
+    
     const [error, setError] = useState({
           status:false,
           msg:"",
@@ -139,7 +140,7 @@ export const AuthProvider = ({children}) => {
             Navigate('/',3000)
         }else{
             setError({status: true, msg:"Check you password or email", type:'error'})
-            alert("usernot exists")
+            // alert("usernot exists")
         }
       
     }
@@ -155,7 +156,7 @@ export const AuthProvider = ({children}) => {
         user:user,
         loginUser:loginUser,
         logoutUser:logoutUser,
-        setError:setError,
+        error:error,
         setCartSubTotal:setCartSubTotal,
         cartSubTotal:cartSubTotal,
         setCartCount:setCartCount,
@@ -165,7 +166,7 @@ export const AuthProvider = ({children}) => {
         handleAddToCart:handleAddToCart,
         handleCartItemQuantity:handleCartItemQuantity,
         handleRemoveFromCart:handleRemoveFromCart,
-
+      
 
     }
 

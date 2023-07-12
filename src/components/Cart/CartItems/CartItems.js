@@ -7,7 +7,7 @@ import { MdClose } from "react-icons/md";
 
 import AuthContext from '../../../context/AuthContext'
 const CartItems = () => {
-  const { cartItems, handleRemoveFromCart, handleCartProductQuantity } = useContext(AuthContext)
+  const { cartItems, handleRemoveFromCart, handleCartItemQuantity } = useContext(AuthContext)
   console.log(cartItems)
   return (
     <div className="cart-products">
@@ -18,7 +18,7 @@ const CartItems = () => {
             onClick={() => {}}
         >
             <div className="image-container">
-               
+               <img src={`http://127.0.0.1:8000${item.image}`}/>
             </div>
             <div className="prod-details">
                 <span className="name">{item.name}</span>
@@ -29,7 +29,7 @@ const CartItems = () => {
                 <div className="quantity-buttons">
                     <span
                         onClick={() =>
-                            handleCartProductQuantity("dec", item)
+                            handleCartItemQuantity("dec", item)
                         }
                     >
                         -
@@ -37,7 +37,7 @@ const CartItems = () => {
                     <span>{item.quantity}</span>
                     <span
                         onClick={() =>
-                            handleCartProductQuantity("inc", item)
+                            handleCartItemQuantity("inc", item)
                         }
                     >
                         +
