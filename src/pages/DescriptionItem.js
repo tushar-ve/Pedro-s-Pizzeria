@@ -1,14 +1,6 @@
 
 import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
-
-import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
 import '../styles/Description.css'
 import { FaCartPlus } from "react-icons/fa";
 import AuthContext from '../context/AuthContext';
@@ -18,6 +10,8 @@ const DescriptionItem = (props) => {
    const { handleAddToCart } = useContext(AuthContext)
    const navigate = useNavigate();
    const [foodItem, setFoodItem] = useState([]);
+   const [option, setOption] = useState('Pizza');
+
    const [loading, setLoading] = useState(true);
    const { item_id } = useParams();
 
@@ -27,6 +21,7 @@ const DescriptionItem = (props) => {
             const response = await fetch(`http://127.0.0.1:8000/account/menuitems/${item_id}/`);
             const data = await response.json();
             setFoodItem(data);
+            // setOption()
          } catch (error) {
             console.error('Error fetching food item:', error);
          }
@@ -73,23 +68,30 @@ const DescriptionItem = (props) => {
                         <p className="card__content"> Energy: <span className='inner__clr'>{foodItem.energy}%</span></p>
                      </div>
                      <div className="cart-buttons">
-                     
-                        <select placeholder='Size' className="quantity-buttons" style={{textAlign:'center'}}>
+
+                     <select
+   value={option}
+   onChange={(e) => setOption(e.target.value)}
+   className="quantity-buttons"
+   style={{ textAlign: 'center' }}
+>
+                        <option>Pizza</option>  
                            <option>Medium</option>
                            <option>Small</option>
                            <option>Large</option>
                         </select>
-               
+
+
 
                         <div className="quantity-buttons">
                            <span onClick={decrement}>-</span>
                            <span>{quantity}</span>
                            <span onClick={increment}>+</span>
                         </div>
-                            <button className="add-to-cart-button" onClick={() => handleAddToCart(foodItem, quantity)}>
-                              <FaCartPlus size={20} /><span style={{ marginLeft: 9 }} onClick={()=>{navigate('/cart')}}> ADD TO CART</span>
-                           </button>
-                     
+                        <button className="add-to-cart-button" onClick={() => handleAddToCart(foodItem, quantity, option)}>
+                           <FaCartPlus size={20} /><span style={{ marginLeft: 9 }} onClick={() => { navigate('/cart') }}> ADD TO CART</span>
+                        </button>
+
                      </div>
 
                   </div>

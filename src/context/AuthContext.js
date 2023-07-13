@@ -24,7 +24,7 @@ export const AuthProvider = ({children}) => {
     const [cartCount, setCartCount]=useState(0)
     const [cartSubTotal, setCartSubTotal]= useState(0)
  
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
 
         let count = 0;
@@ -54,27 +54,29 @@ export const AuthProvider = ({children}) => {
     }, [cartItems]);
   
 
-    const handleAddToCart = (item, quantity) => {
+    const handleAddToCart = (item, quantity,option) => {
 
         let items = [...cartItems];
-        console.log(items)
+        // console.log(option)
 
         let index = items.findIndex((i) => i.id === item.id);
 
         if (index !== -1) {
+            items[index].option = option
 
             items[index].quantity += quantity;
 
         } else {
 
             item.quantity = quantity;
+            item.option= option
 
             items = [...items, item];
 
         }
 
         setCartItems(items);
-        console.log(items)
+        // console.log(items)
 
     };
 
@@ -113,6 +115,7 @@ export const AuthProvider = ({children}) => {
 
         }
     }
+    
 
     
     
@@ -137,7 +140,8 @@ export const AuthProvider = ({children}) => {
             const decodedToken = jwt_decode(data.token.access);
             setUser(decodedToken)
             localStorage.setItem('authTokens', JSON.stringify(data))
-            Navigate('/',3000)
+            setError({ status: true, msg: "Registration Successful", type: 'success' });
+            navigate('/', 9000);
         }else{
             setError({status: true, msg:"Check you password or email", type:'error'})
             // alert("usernot exists")
@@ -149,7 +153,7 @@ export const AuthProvider = ({children}) => {
         setAuthTokens(null)
         setUser(null)
         localStorage.removeItem('authTokens')
-        Navigate('/login')
+        navigate('/login')
     }
 
     let contextData ={

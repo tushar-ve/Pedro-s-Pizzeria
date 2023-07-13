@@ -12,7 +12,7 @@ import Cart from '.././components/Cart/Cart'
 
 const Navbar = () => {
 
-  let { user, logoutUser } = useContext(AuthContext)
+  let { user, logoutUser, cartCount} = useContext(AuthContext)
  const navigate= useNavigate();
   const [openLinks, setOpenLinks] = useState(false)
   const [showCart, setShowCart] =  useState(false)
@@ -44,7 +44,7 @@ const Navbar = () => {
             Logout
           </Button>
           <Button onClick={()=>setShowCart(true)} style={{ backgroundColor: '#352121', display: 'flex',flexWrap:'nowrap'}} variant="outlined" color="error">
-            Add<AddShoppingCartIcon />
+            {cartCount}<AddShoppingCartIcon />
           </Button>
           {showCart && <Cart setShowCart={setShowCart}/>}
 </>
