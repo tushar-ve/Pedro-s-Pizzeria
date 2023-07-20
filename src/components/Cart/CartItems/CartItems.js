@@ -6,9 +6,12 @@ import { MdClose } from "react-icons/md";
 
 
 import AuthContext from '../../../context/AuthContext'
+
 const CartItems = () => {
   const { cartItems, handleRemoveFromCart, handleCartItemQuantity } = useContext(AuthContext)
 //   console.log(cartItems)
+ 
+  console.log(cartItems)
   return (
     <div className="cart-products">
     {cartItems?.map((item) => (
@@ -17,8 +20,8 @@ const CartItems = () => {
             key={item.id}
             onClick={() => {}}
         >
-            <div className="image-container">
-               <img src={`http://127.0.0.1:8000${item.image}`}/>
+            <div style={{width:'100%', height:'100%', float:'left'}} >
+               <img src={`http://127.0.0.1:8000/${item.image}`}/>
             </div>
             <div className="prod-details">
                 <span className="name">{item.name}</span>
@@ -28,13 +31,14 @@ const CartItems = () => {
                 /></div>
                 
                 <div className="quantity-buttons">
-                    <span className='qty' onClick={() =>      handleCartItemQuantity("dec", item)  }
+                    <span className='qty' onClick={() =>handleCartItemQuantity("dec", item)}
                     >  -
                     </span>
                     <span className='qty' >{item.quantity}</span>
-                    <span className='qty'  onClick={() =>      handleCartItemQuantity("inc", item)  }
+                    <span className='qty' onClick={() =>handleCartItemQuantity("inc", item)}
                     >  +
-                    </span><span>{item.option}</span>
+                    </span>
+                    {/* <span>{item.option}</span> */}
                 </div>
        
                 <div className="text">

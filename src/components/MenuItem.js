@@ -1,11 +1,11 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Link, useNavigate} from 'react-router-dom'
-
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const MenuItem = ({image, name, price}) => {
   const [data, setData] = useState([])
   const navigate= useNavigate()
+  
   useEffect(() => {
     fetch("http://127.0.0.1:8000/account/menuitems/").then((result) => {
       result.json().then((resp) => {

@@ -44,7 +44,7 @@ const Navbar = () => {
             Logout
           </Button>
           <Button onClick={()=>setShowCart(true)} style={{ backgroundColor: '#352121', display: 'flex',flexWrap:'nowrap'}} variant="outlined" color="error">
-            {cartCount}<AddShoppingCartIcon />
+            <AddShoppingCartIcon />{!!cartCount && <span>{cartCount}</span>}
           </Button>
           {showCart && <Cart setShowCart={setShowCart}/>}
 </>

@@ -16,12 +16,14 @@ import DescriptionItem from './pages/DescriptionItem';
 import Cart from './components/Cart/Cart';
 import PrivateRoute from './components/PrivateRoutes/PrivateRoute';
 import SearchComponent from './components/Searching/Search';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
     <div className="App">
     <Router>
     <AuthProvider>
+  
     <Navbar/>
     <Routes>
 
@@ -46,6 +48,7 @@ function App() {
       
     </Routes>
     <Footer/>
+    
     </AuthProvider>
     </Router>
     
