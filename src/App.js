@@ -16,7 +16,8 @@ import DescriptionItem from './pages/DescriptionItem';
 import Cart from './components/Cart/Cart';
 import PrivateRoute from './components/PrivateRoutes/PrivateRoute';
 import SearchComponent from './components/Searching/Search';
-import { CartProvider } from './context/CartContext';
+// import { CartProvider } from './context/CartContext';
+import ShippingAddress from './components/Cart/Shipping/ShippingAddress';
 
 function App() {
   return (
@@ -27,10 +28,9 @@ function App() {
     <Navbar/>
     <Routes>
 
- <Route element={<PrivateRoute />}> <Route path='/cart' element={<Cart/>}/>
+    <Route element={<PrivateRoute />}> <Route path='/cart' element={<Cart/>}/>
  <Route path='/contact' element={<Contact/>}/> 
  <Route path='/send-email' element={<SendPasswordResetEmail/>}/></Route>
-
 
       <Route path='/' element={<Home/>} />
       <Route path='/menu' element={<Menu/>}/>
@@ -44,9 +44,10 @@ function App() {
       <Route path='/verify' element={<OTP/>}/>
      
       <Route path='/search/:name' element={<SearchComponent/>}/>
+     <Route path='/address' element={<ShippingAddress/>}/>
 
-      
-    </Routes>
+      </Routes>
+    
     <Footer/>
     
     </AuthProvider>

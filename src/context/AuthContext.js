@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
     const storedTokens = localStorage.getItem('authTokens');
     return storedTokens ? jwt_decode(JSON.parse(storedTokens).token.access) : null;
   });
+
   const [isVerified, setIsVerified] = useState(
     () => (authTokens ? jwt_decode(authTokens.token.access).is_verified : false)
   );
@@ -26,7 +27,7 @@ export const AuthProvider = ({ children }) => {
 
   
   const [cartItems, setCartItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
+  const [cartCount, setCartCount] = useState(1);
   const [cartSubTotal, setCartSubTotal] = useState(0);
 
   const navigate = useNavigate();
@@ -80,6 +81,7 @@ export const AuthProvider = ({ children }) => {
 
   const addToCart = async (item_id, quantity) => {
     console.log(item_id)
+    console.log(quantity)
 
     setLoading(true);
 
@@ -161,6 +163,45 @@ export const AuthProvider = ({ children }) => {
   //   }
   //   setCartItems(items);
   // };
+
+  const order = async ( item_id,quantity) => {
+    console.log(item_id);
+    console.log(quantity);
+  
+    setLoading(true);
+  
+    try {
+      const response = await fetch('http://localhost:8000/account/order/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${authTokens.token.access}`,
+        },
+        body: JSON.stringify({
+          user: user.user_id,
+          item: item_id,
+          quantity: quantity,
+          // amount: foodItem.amount,
+          // image: foodItem.image,
+          // name: foodItem.name
+        }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        setCartItems(data);
+        console.log('Order Successfully');
+      } else {
+        console.log('Failed to Order. Response status:', response.status);
+      }
+    } catch (error) {
+      console.log('Error:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+
   const handleCartItemQuantity = async (type, item) => {
 
     try {
@@ -273,6 +314,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('authTokens');
     navigate('/login', { replace: true });
   };
+  
 
   const contextData = {
     user,
@@ -285,9 +327,11 @@ export const AuthProvider = ({ children }) => {
     cartCount,
     cartItems,
     setCartItems,
+    order,
     addToCart,
     handleCartItemQuantity,
     handleRemoveFromCart,
+    authTokens,
   };
 
   return <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>;

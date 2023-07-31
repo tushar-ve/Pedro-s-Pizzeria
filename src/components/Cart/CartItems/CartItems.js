@@ -26,25 +26,19 @@ const CartItems = () => {
             <div className="prod-details">
                 <span className="name">{item.name}</span>
                 <div onClick={() => handleRemoveFromCart(item)}><span>Remove</span><MdClose
-                    className="close-btn"
-                    
-                /></div>
+                    className="close-btn" /></div>
                 
                 <div className="quantity-buttons">
-                    <span className='qty' onClick={() =>handleCartItemQuantity("dec", item)}
-                    >  -
-                    </span>
+                    <span className='qty' onClick={() =>handleCartItemQuantity("dec", item)}>-</span>
                     <span className='qty' >{item.quantity}</span>
-                    <span className='qty' onClick={() =>handleCartItemQuantity("inc", item)}
-                    >  +
-                    </span>
+                    <span className='qty' onClick={() =>handleCartItemQuantity("inc", item)}>+</span>
                     {/* <span>{item.option}</span> */}
                 </div>
        
                 <div className="text">
                     <span>{item.quantity}</span>
                     <span>x</span>
-                    <span className="highlight">  <span>&#8377;</span>  {item.amount }
+                    <span className="highlight">  <span>&#8377;</span>  {item.amount}
                     </span>
                 </div>
             </div>

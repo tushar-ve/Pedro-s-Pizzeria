@@ -217,9 +217,7 @@ const DescriptionItem = () => {
   }, [item_id]);
 
   const HandleAddToCart = (e) => {
-
     e.preventDefault()
-
     addToCart(item_id, quantity)
 
 }
@@ -275,7 +273,7 @@ const DescriptionItem = () => {
                 <div className="cart-buttons">
                   {/* <select
                     value={foodItem.option}
-                    // onChange={(e) => setFoodItem({ ...foodItem, option: e.target.value })}
+                    onChange={(e) => setFoodItem({ ...foodItem, option: e.target.value })}
                     className="quantity-buttons"
                     style={{ textAlign: 'center' }}
                   >
