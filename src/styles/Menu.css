@@ -1,11 +1,10 @@
 .menu {
   width: 100%;
-  height: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
+
 .menu .menuTitle {
   font-family: cursive;
   font-size: 60px;
@@ -20,32 +19,20 @@
 }
 
 /* MENU ITEM STYLING */
-
 .menuItem {
   border-radius: 15px;
   width: 304px;
-    height: 394px;
-  margin: 20px;
+  height: 394px;
+  margin: 20px 4px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
-.menuItem:hover{
+
+.menuItem:hover, .amount:hover {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
   transition: 0.3s ease-in;
   cursor: pointer;
 }
-.amount{
-  font-style: 'fantasy';
-}
-.amount:hover {
-  transition: 0.3s ease-in;
-  cursor: pointer;
-}
 
-.cart1{
-  display: flex;
-    justify-content: flex-end;
-    
-}
 .menuItem div {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -56,13 +43,16 @@
   background-size: cover;
 }
 
-.menuItem{
-  margin-left: 4px;
-}
-
-p, a{
+p, a {
   margin-left: 14px;
 }
+
+.cart1 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Media Queries */
 @media only screen and (max-width: 1300px) {
   .menuList {
     grid-template-columns: 1fr 1fr;

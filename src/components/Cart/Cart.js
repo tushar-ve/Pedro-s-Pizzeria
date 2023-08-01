@@ -10,14 +10,14 @@ const Cart = ({ setShowCart }) => {
   const { cartCount, showCart, cartItems, cartSubTotal } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Function to handle checkout and navigate to the address page
+  
   const handleCheckout = () => {
     navigate('/address');
   };
 
   return (
     <div className="cart-panel">
-      <div className="opac-layer" onClick={() => setShowCart(false)}></div>
+      {/* <div className="opac-layer" onClick={() => setShowCart(false)}></div> */}
       <div className="cart-content">
         <div className="cart-header">
           <span className="heading">Shopping Cart</span>

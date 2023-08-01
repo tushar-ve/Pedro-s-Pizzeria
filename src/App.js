@@ -18,6 +18,7 @@ import PrivateRoute from './components/PrivateRoutes/PrivateRoute';
 import SearchComponent from './components/Searching/Search';
 // import { CartProvider } from './context/CartContext';
 import ShippingAddress from './components/Cart/Shipping/ShippingAddress';
+import OrderDetail from './components/Order/OrderDetail';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
      
       <Route path='/search/:name' element={<SearchComponent/>}/>
      <Route path='/address' element={<ShippingAddress/>}/>
+     <Route path='/order-detail' element={<OrderDetail/>}/>
 
       </Routes>
     

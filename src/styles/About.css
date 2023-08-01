@@ -1,13 +1,18 @@
+/* styles/About.css */
+
 .about {
   width: 100%;
-  height: 90vh;
+  height: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 30px 0;
 }
 
 .aboutTop {
   width: 100%;
-  height: 45%;
+  height: 400px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,27 +20,25 @@
 }
 
 .aboutBottom {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 55%;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .aboutBottom p {
-  width: 1200px;
+  max-width: 800px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
 }
 
 .about .aboutBottom h1 {
-  
-  font-weight: 400;
-  font-size: 70px;
-  color: black;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  transform: translateY(-40px);
-}
-.title{
+  font-weight: 600;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
   font-family: 'Bangers', cursive;
 }
