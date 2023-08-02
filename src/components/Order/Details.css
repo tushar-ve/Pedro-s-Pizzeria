@@ -1,121 +1,94 @@
+/* Details.css */
+
 .order-detail-container {
-
-  max-width: 600px;
-
+  max-width: 800px;
   margin: 0 auto;
-
   padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
- 
+.order-detail-container h2 {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
 
-  h2 {
+.order-detail-container > div {
+  margin-bottom: 40px;
+}
 
-    text-align: center;
+.order-number,
+.shipping-address,
+.mobile-number,
+.order-items,
+.order-total {
+  margin-bottom: 20px;
+}
 
-    margin-bottom: 20px;
+.order-number {
+  font-weight: bold;
+}
 
+.order-items h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.order-total {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.loading-text {
+  font-size: 20px;
+  text-align: center;
+  color: #999;
+  margin-top: 50px;
+  animation: pulse 1s infinite;
+}
+
+@media only screen and (max-width: 768px) {
+  /* Mobile Devices */
+  .order-detail-container {
+    padding: 10px;
   }
 
- 
-
-  .order-number,
-
-  .shipping-address,
-
-  .mobile-number {
-
-    margin-bottom: 10px;
-
+  .order-detail-container h2 {
+    font-size: 28px;
   }
 
- 
-
-  .order-items {
-
-    margin-top: 20px;
-
-    table {
-
-      width: 100%;
-
-      border-collapse: collapse;
-
-      th,
-
-      td {
-
-        border: 1px solid #ddd;
-
-        padding: 8px;
-
-        text-align: left;
-
-      }
-
-      th {
-
-        background-color: #f2f2f2;
-
-        font-weight: bold;
-
-      }
-
-      td {
-
-        font-size: 14px;
-
-      }
-
-      tr:nth-child(even) {
-
-        background-color: #f2f2f2;
-
-      }
-
-      tr:hover {
-
-        background-color: #ddd;
-
-      }
-
-    }
-
+  .order-items h3 {
+    font-size: 20px;
   }
 
- 
-
-  .order-total {
-
-    text-align: right;
-
-    font-weight: bold;
-
-    margin-top: 20px;
-
+  th,
+  td {
+    padding: 8px;
   }
-
- 
-
-  .loading-message {
-
-    text-align: center;
-
-    margin-top: 20px;
-
-  }
-
- 
-
-  .error-message {
-
-    text-align: center;
-
-    margin-top: 20px;
-
-    color: red;
-
-    font-weight: bold;
-
-  }
-
 }

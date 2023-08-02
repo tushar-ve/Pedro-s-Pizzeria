@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
         if (!authTokens) {
           setError({
             status: true,
-            msg: 'No authentication token found. Please login first.',
+            msg: 'No authentication found. Please login first.',
             type: 'error',
           });
           return;
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
       }
     };
     fetchData();
-  }, [authTokens, user]);
+  }, [authTokens, user, cartCount]);
 
   useEffect(() => {
     let count = 0;
@@ -82,6 +82,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     setCartCount(count);
+    console.log(cartCount)
     setCartSubTotal(subTotal);
   }, [cartItems]);
 
@@ -92,7 +93,7 @@ export const AuthProvider = ({ children }) => {
       if (!authTokens) {
         setError({
           status: true,
-          msg: 'No authentication token found. Please login first.',
+          msg: 'No authentication found. Please login first.',
           type: 'error',
         });
         return;
@@ -131,7 +132,7 @@ export const AuthProvider = ({ children }) => {
       if (!authTokens) {
         setError({
           status: true,
-          msg: 'No authentication token found. Please login first.',
+          msg: 'No authentication  found. Please login first.',
           type: 'error',
         });
         return;
@@ -203,7 +204,7 @@ export const AuthProvider = ({ children }) => {
       if (!authTokens) {
         setError({
           status: true,
-          msg: 'No authentication token found. Please login first.',
+          msg: 'No authentication found. Please login first.',
           type: 'error',
         });
         return;
@@ -255,7 +256,7 @@ export const AuthProvider = ({ children }) => {
       if (!authTokens) {
         setError({
           status: true,
-          msg: 'No authentication token found. Please login first.',
+          msg: 'No authentication found. Please login first.',
           type: 'error',
         });
         return;

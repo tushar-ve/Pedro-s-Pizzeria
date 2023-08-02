@@ -189,11 +189,11 @@ import AuthContext from '../context/AuthContext';
 
 const DescriptionItem = () => {
   const [quantity, setQuantity] = useState(0);
-  const {  userId, setCartItems, user, authTokens, addToCart } = useContext(AuthContext);
+  const {  userId, setCartItems, user, authTokens, addToCart, cartCount } = useContext(AuthContext);
   const navigate = useNavigate();
   const { item_id } = useParams();
 
-  const [foodItem, setFoodItem] = useState(null);
+  const [foodItem, setFoodItem] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchFoodItem = async () => {
@@ -221,6 +221,7 @@ const DescriptionItem = () => {
     addToCart(item_id, quantity)
 
 }
+
 
   const decrement = () => {
     setQuantity((prevState) => (prevState === 1 ? 1 : prevState - 1));
