@@ -1,6 +1,58 @@
-# Getting Started with Create React App
+Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Django and React application combines various features to create a seamless experience for users in accessing and ordering from nearby restaurants. The project includes authentication, user profiles, Google Maps integration, receipt handling, delivery tracking, cart functionalities, and more.
+Functionalities
+1. Authentication
+
+    Login, Signup, and Forgot Password: Implemented authentication features using Knox or JWT for secure user login, signup, and password recovery.
+
+    URL Authentication: Set up URL authentication to ensure secure access to specific pages or functionalities.
+
+2. User Profile
+
+    User Profile Page: Users can view and update their profile information through a dedicated page accessible from the navigation bar.
+
+3. Google Maps API Integration
+
+    Nearby Restaurants: Utilized the Google Maps API to display information about nearby restaurants, including names, addresses, ratings, and menus.
+
+4. Food Receipt Handling
+
+    Download Receipts: Users can download their food receipts. Receipt data is sent to the admin via email using email.js.
+
+5. Delivery Section
+
+    Order Tracking: Implemented a delivery section where users can track the status of their orders and view estimated delivery times.
+
+6. Cart Functionalities
+
+    Cart Operations: Users can add items, adjust quantities, remove items, and calculate the total amount.
+
+7. Registration Confirmation
+
+    Confirmation Email: Sends a confirmation email to the user's provided email address upon successful registration.
+
+8. Mandatory Login
+
+    Secure Ordering: Users are required to log in before accessing the menu page or placing an order.
+
+9. Coupon Application
+
+    Apply Coupons: Implemented a feature allowing users to apply coupons to their total order amount.
+
+10. User Address on Registration
+
+    Address Capture: Added a field during user registration to capture the user's address information for efficient delivery.
+
+11. Feedback System
+
+    User Feedback: Enabled users to provide feedback on the food they have ordered, including ratings, reviews, and comments.
+
+Future Scope
+
+    Delivery Boy Assignment: Consider incorporating functionality to assign delivery boys based on their availability and order number.
+
+    Homepage Bot: In the future, integration of a bot on the homepage to provide additional assistance and support to users.
 
 ## Available Scripts
 
